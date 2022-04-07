@@ -4,6 +4,9 @@
  */
 package com.br.visao;
 
+import com.br.calculadora.controller.CalculadoraController;
+import com.br.calculadora.conversor.Conversor;
+
 /**
  *
  * @author gusta
@@ -51,6 +54,7 @@ public class VisaoCalc extends javax.swing.JFrame {
         lblResultado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Calculadora Manual");
 
         txtInput.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         txtInput.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -60,6 +64,11 @@ public class VisaoCalc extends javax.swing.JFrame {
 
         btnOFF.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnOFF.setText("OFF");
+        btnOFF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOFFActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnOFF);
 
         btnElevadoQuadrado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -68,58 +77,128 @@ public class VisaoCalc extends javax.swing.JFrame {
 
         btnAC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnAC.setText("AC");
+        btnAC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnACActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnAC);
 
         btnDividir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnDividir.setText("/");
+        btnDividir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDividirActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnDividir);
 
         btn7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn7.setText("7");
+        btn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn7ActionPerformed(evt);
+            }
+        });
         jPanel2.add(btn7);
 
         btn8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn8.setText("8");
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
         jPanel2.add(btn8);
 
         btn9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn9.setText("9");
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
         jPanel2.add(btn9);
 
         btnMultiplicar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnMultiplicar.setText("*");
+        btnMultiplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultiplicarActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnMultiplicar);
 
         btn4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn4.setText("4");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
         jPanel2.add(btn4);
 
         btn5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn5.setText("5");
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
         jPanel2.add(btn5);
 
         btn6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn6.setText("6");
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
         jPanel2.add(btn6);
 
         btnMenos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnMenos.setText("-");
+        btnMenos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenosActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnMenos);
 
         btn1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn1.setText("1");
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(btn1);
 
         btn2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn2.setText("2");
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(btn2);
 
         btn3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn3.setText("3");
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
         jPanel2.add(btn3);
 
         btnMais.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnMais.setText("+");
+        btnMais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMaisActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnMais);
 
         bntMaisMenos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -128,6 +207,11 @@ public class VisaoCalc extends javax.swing.JFrame {
 
         btn0.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btn0.setText("0");
+        btn0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0ActionPerformed(evt);
+            }
+        });
         jPanel2.add(btn0);
 
         bntVirgula.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -141,6 +225,11 @@ public class VisaoCalc extends javax.swing.JFrame {
 
         btnResultado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnResultado.setText("=");
+        btnResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResultadoActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnResultado);
 
         lblResultado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -175,8 +264,85 @@ public class VisaoCalc extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntVirgulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntVirgulaActionPerformed
-        // TODO add your handling code here:
+        digita(",");
     }//GEN-LAST:event_bntVirgulaActionPerformed
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        digita("1");
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        digita("2");
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        digita("3");
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        digita("4");
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        digita("5");
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        digita("6");
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        digita("7");
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        digita("8");
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        digita("9");
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+        digita("0");
+    }//GEN-LAST:event_btn0ActionPerformed
+
+    private void btnMaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaisActionPerformed
+        
+        if(ultimaOperacao == "="){
+
+        }
+        verifica("+");
+        ultimaOperacao = "+";
+    }//GEN-LAST:event_btnMaisActionPerformed
+
+    private void btnMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenosActionPerformed
+        verifica("-");
+        ultimaOperacao = "-";
+    }//GEN-LAST:event_btnMenosActionPerformed
+
+    private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicarActionPerformed
+        verifica("*");
+        ultimaOperacao = "*";
+    }//GEN-LAST:event_btnMultiplicarActionPerformed
+
+    private void btnDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDividirActionPerformed
+        verifica("/");
+        ultimaOperacao = "/";
+    }//GEN-LAST:event_btnDividirActionPerformed
+
+    private void btnACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnACActionPerformed
+        limparTxt();
+        limparlbl();
+    }//GEN-LAST:event_btnACActionPerformed
+
+    private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
+        digita("=");
+    }//GEN-LAST:event_btnResultadoActionPerformed
+
+    private void btnOFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOFFActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnOFFActionPerformed
     
     /**
      * @param args the command line arguments
@@ -208,12 +374,15 @@ public class VisaoCalc extends javax.swing.JFrame {
     private javax.swing.JTextField txtInput;
     // End of variables declaration//GEN-END:variables
 
-    private void digita(String input){
+    CalculadoraController calculadora = new CalculadoraController();
+    Conversor conversor = new Conversor();
+    private String ultimaOperacao;
 
-        if(txtInput.getText().equals("0,00")){
+    private void digita(String input){
+        if(txtInput.getText().equals("0") || txtInput.equals("0.0")){
             txtInput.setText(input);
         }else{
-            if(txtInput.getText().contains(",") && txtInput.equals(",")){
+            if(txtInput.getText().contains(",") && input.equals(",")){
 
             }else {
                 txtInput.setText(txtInput.getText().concat(input));
@@ -221,4 +390,35 @@ public class VisaoCalc extends javax.swing.JFrame {
         }
     }
 
+    private void digitaCalculo(){
+        lblResultado.setText(txtInput.getText());
+        txtInput.setText("0");
+    }
+
+    private void limparTxt(){
+        txtInput.setText("0");
+    }
+
+    private void limparlbl(){
+        lblResultado.setText("0");
+    }
+
+    private void verifica(String operador){
+        if(lblResultado.getText().contains("=")){
+            limparlbl();
+        }
+
+        if(lblResultado.getText().contains("+") || lblResultado.getText().contains("-") || lblResultado.getText().contains("*") || lblResultado.getText().contains("/")){
+            calculadora.calcular(lblResultado.getText(),txtInput.getText() , ultimaOperacao);
+
+            String equacao = "";
+            equacao = lblResultado.getText().concat(txtInput.getText().concat("=").concat(conversor.doubleToString(calculadora.getResultado())));
+
+            lblResultado.setText(equacao);
+            txtInput.setText(conversor.doubleToString(calculadora.getResultado()));
+        }else{
+            digita(operador);
+            digitaCalculo();
+        }
+    }
 }
