@@ -4,8 +4,6 @@
  */
 package com.br.calculadora.conversor;
 
-import javax.swing.JLabel;
-
 /**
  *
  * @author gusta

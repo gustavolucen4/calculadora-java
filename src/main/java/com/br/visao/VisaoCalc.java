@@ -73,6 +73,11 @@ public class VisaoCalc extends javax.swing.JFrame {
 
         btnElevadoQuadrado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnElevadoQuadrado.setText("x\"");
+        btnElevadoQuadrado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnElevadoQuadradoActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnElevadoQuadrado);
 
         btnAC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -203,6 +208,11 @@ public class VisaoCalc extends javax.swing.JFrame {
 
         bntMaisMenos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bntMaisMenos.setText("+/-");
+        bntMaisMenos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntMaisMenosActionPerformed(evt);
+            }
+        });
         jPanel2.add(bntMaisMenos);
 
         btn0.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -264,7 +274,7 @@ public class VisaoCalc extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntVirgulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntVirgulaActionPerformed
-        digita(",");
+        digita(".");
     }//GEN-LAST:event_bntVirgulaActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
@@ -337,12 +347,20 @@ public class VisaoCalc extends javax.swing.JFrame {
     }//GEN-LAST:event_btnACActionPerformed
 
     private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultadoActionPerformed
-        digita("=");
+        resultado();
     }//GEN-LAST:event_btnResultadoActionPerformed
 
     private void btnOFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOFFActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnOFFActionPerformed
+
+    private void bntMaisMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntMaisMenosActionPerformed
+        trocaSinal();
+    }//GEN-LAST:event_bntMaisMenosActionPerformed
+
+    private void btnElevadoQuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElevadoQuadradoActionPerformed
+        elevadoQuadrado();
+    }//GEN-LAST:event_btnElevadoQuadradoActionPerformed
     
     /**
      * @param args the command line arguments
@@ -409,16 +427,39 @@ public class VisaoCalc extends javax.swing.JFrame {
         }
 
         if(lblResultado.getText().contains("+") || lblResultado.getText().contains("-") || lblResultado.getText().contains("*") || lblResultado.getText().contains("/")){
-            calculadora.calcular(lblResultado.getText(),txtInput.getText() , ultimaOperacao);
-
-            String equacao = "";
-            equacao = lblResultado.getText().concat(txtInput.getText().concat("=").concat(conversor.doubleToString(calculadora.getResultado())));
-
-            lblResultado.setText(equacao);
-            txtInput.setText(conversor.doubleToString(calculadora.getResultado()));
+            resultado();
         }else{
             digita(operador);
             digitaCalculo();
         }
     }
+
+    private void resultado(){
+            calculadora.calcular(lblResultado.getText(),txtInput.getText() , ultimaOperacao);
+
+            String equacao;
+            equacao = lblResultado.getText().concat(txtInput.getText().concat("=").concat(conversor.doubleToString(calculadora.getResultado())));
+
+            lblResultado.setText(equacao);
+            txtInput.setText(conversor.doubleToString(calculadora.getResultado()));
+    }
+
+    private void  trocaSinal(){
+        
+        double numero;
+        numero = conversor.stringToDouble(txtInput.getText());
+        numero = numero * (-1);
+        
+        txtInput.setText(conversor.doubleToString(numero));
+    }
+
+    private void elevadoQuadrado(){
+
+        double numero;
+        numero = conversor.stringToDouble(txtInput.getText());
+        double resultado = Math.pow(numero, 2);
+        
+        txtInput.setText(conversor.doubleToString(numero));
+        lblResultado.setText(numero + "^2 = " + resultado);
+        }
 }
