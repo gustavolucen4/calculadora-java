@@ -400,7 +400,7 @@ public class VisaoCalc extends javax.swing.JFrame {
         if(txtInput.getText().equals("0") || txtInput.equals("0.0")){
             txtInput.setText(input);
         }else{
-            if(txtInput.getText().contains(",") && input.equals(",")){
+            if(input.equals(".") && txtInput.getText().contains(".")){
 
             }else {
                 txtInput.setText(txtInput.getText().concat(input));
@@ -435,13 +435,19 @@ public class VisaoCalc extends javax.swing.JFrame {
     }
 
     private void resultado(){
-            calculadora.calcular(lblResultado.getText(),txtInput.getText() , ultimaOperacao);
+                
+        if(txtInput.getText().equals("0")){
+            txtInput.setText("Não é possivel dividir por 0");
+            return;
+        }
 
-            String equacao;
-            equacao = lblResultado.getText().concat(txtInput.getText().concat("=").concat(conversor.doubleToString(calculadora.getResultado())));
+        calculadora.calcular(lblResultado.getText(),txtInput.getText() , ultimaOperacao);
 
-            lblResultado.setText(equacao);
-            txtInput.setText(conversor.doubleToString(calculadora.getResultado()));
+        String equacao;
+        equacao = lblResultado.getText().concat(txtInput.getText().concat("=").concat(conversor.doubleToString(calculadora.getResultado())));
+
+        lblResultado.setText(equacao);
+        txtInput.setText(conversor.doubleToString(calculadora.getResultado()));
     }
 
     private void  trocaSinal(){
